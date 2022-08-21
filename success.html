@@ -1,21 +1,18 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
     <head>
         <link rel="stylesheet" href="./success.css">
+    <title>SUCCESS</title>
     </head>
+    
     <body>
-        <div class="contentarea">
-            <div class="camera">
-              <video id="video">Video stream not available.</video>
-              <button id="startbutton">Take photo</button>
-            </div>
-            <canvas id="canvas">
-            </canvas>
-            <div class="output">
-              <img id="photo" alt="The screen capture will appear in this box.">
-            </div>
-          </div>
-          
+        <div id="main">   
+        <video id="video" autoplay></video>
+        <canvas id="canvas"></canvas>
+        <button id="click-photo">Click Photo</button>
+        <button id="start-camera">Start Camera</button>
+        </div>
+        
     </body>
-    <script src="./success.js">
-    </script>
+    <script src="./success.js"></script>
 </html>
