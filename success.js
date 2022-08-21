@@ -80,7 +80,7 @@ $(document).ready(function() {
 		processData : false
 	}).done(function(data, textStatus, xhrObj){
 		resp = xhrObj.getResponseHeader("apim-request-id");
-		console.log(resp)
+		alert("Successfully submitted")
 	});
 	});
 
@@ -98,7 +98,7 @@ var myUrl;
 		  type : "GET",
 	  }).done(function(response){
 		  resp1 = response;
-		  alert(resp1)
+		  alert(resp1['analyzeResult']['readResults'][0].lines[0].text)
 	  });
 	  });
 	});
