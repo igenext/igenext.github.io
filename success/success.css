@@ -1,0 +1,45 @@
+body{
+    background: linear-gradient(45deg, #FC466B, #3F5EFB);
+    height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#main{
+    left      : 50%;
+    top       : 50%;
+    position  : absolute;
+    transform : translate(-50%, -50%);
+    background: white;
+    border-radius: 20px;
+    height: 700px;
+    width: 500px
+}
+
+#click-photo{
+    margin:40px 30px 10px 50px;
+}
+
+
+button{
+    width: 200px;
+    height: 33px;
+    background: #2f2f2f;
+    color: #fff;
+    font-size: 15px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
+    
+}
+
+video{
+    height: 320px;
+    width: 400px;
+    margin: 5px 55px;
+}
+
+canvas{
+    height:240px;
+    width:320px;
+    margin: 5px 55px;
+}
