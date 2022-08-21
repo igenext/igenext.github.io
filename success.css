@@ -32,6 +32,11 @@ button{
     
 }
 
+#submit{
+   right: 100px;
+   margin: 40px 30px 10px 50px;;
+}
+
 video{
     height: 320px;
     width: 400px;
