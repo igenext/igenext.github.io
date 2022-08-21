@@ -19,9 +19,12 @@ const constraints = {
 	},
   }
 
+ 
+
 camera_button.addEventListener('click', async function() {
    	let stream = await navigator.mediaDevices.getUserMedia(constraints);
 	video.srcObject = stream;
+	
 });
 
 click_button.addEventListener('click', function() {
