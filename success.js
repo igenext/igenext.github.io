@@ -21,6 +21,7 @@ const constraints = {
 
   let image_data_url;
  var resp;
+ var resp1;
   var blobData;
 
 camera_button.addEventListener('click', async function() {
@@ -66,10 +67,10 @@ function createBlob(dataURL) {
 
 
 $(document).ready(function() {
-	$("#submit").click(function(e) {
+	 $("#submit").click(function(e) {
 	  e.preventDefault();
 	  $.ajax({
-		url : "https://tarp.cognitiveservices.azure.com/vision/v3.2/describe?maxCandidates=1&language=en&model-version=latest",
+		url : "https://tarp.cognitiveservices.azure.com/vision/v3.2/read/analyze",
 		beforeSend : function(xhrObj) {
 		  xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
 		  xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "7795ca497058453e8d189b31b8e96e3c");
@@ -77,9 +78,27 @@ $(document).ready(function() {
 		type : "POST",
 		data : blobData,
 		processData : false
-	}).done(function(response){
-		resp = response;
-		alert(resp['description']['tags'])
+	}).done(function(data, textStatus, xhrObj){
+		resp = xhrObj.getResponseHeader("apim-request-id");
+		console.log(resp)
 	});
 	});
+
+var myUrl;
+
+	$("#fetch").click(function(e) {
+		myUrl = "https://tarp.cognitiveservices.azure.com/vision/v3.2/read/analyzeResults/" + resp;
+		e.preventDefault();
+		$.ajax({
+		  url : myUrl,
+		  beforeSend : function(xhrObj) {
+			//xhrObj.setRequestHeader("Content-Type", "application/octet-stream");
+			xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key", "7795ca497058453e8d189b31b8e96e3c");
+		  },
+		  type : "GET",
+	  }).done(function(response){
+		  resp1 = response;
+		  alert(resp1)
+	  });
+	  });
 	});
