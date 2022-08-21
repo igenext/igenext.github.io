@@ -31,8 +31,8 @@ camera_button.addEventListener('click', async function() {
 });
 
 click_button.addEventListener('click', function() {
-	canvas.width = window.innerWidth - window.innerWidth/2;     
-	canvas.height = window.innerHeight-window.innerHeight/2;
+	canvas.width =240;     
+	canvas.height = 320;
    	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
    	image_data_url = canvas.toDataURL('image/jpeg');
 
