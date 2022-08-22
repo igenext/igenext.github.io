@@ -39,8 +39,8 @@ const constraints = {
   }
 
   let image_data_url;
- var resp;
- var resp1;
+  var resp;
+  var resp1;
   var blobData;
 
 camera_button.addEventListener('click', async function() {
@@ -117,7 +117,9 @@ var myUrl;
 		  type : "GET",
 	  }).done(function(response){
 		  resp1 = response;
-		  alert(resp1['analyzeResult']['readResults'][0].lines[0])
+		  console.log(resp1)
+		  alert(resp1['analyzeResult']['readResults'][0])
+		  
 	  });
 	  });
 	});
@@ -125,14 +127,13 @@ var myUrl;
 var mail = localStorage.getItem("email")
 mail = mail.replace("@gmail.com","");
 
-var i = 1
 
 database.onclick = () => {
 	var dT = new Date().toLocaleString();
 	dT = dT.replace("/","-")
 	dT = dT.replace("/","-")
 	set(ref(db, '/'+mail + '/' + dT ), {
-		readValue :resp1['analyzeResult']['readResults'][0].lines[0]
+		readValue :resp1['analyzeResult']['readResults'][0]
 	  })
 	  .then(() => {
 		alert("Setted to Database")
