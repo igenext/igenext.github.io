@@ -132,7 +132,7 @@ database.onclick = () => {
 	var dT = new Date().toLocaleString();
 	dT = dT.replace("/","-")
 	dT = dT.replace("/","-")
-	var respSet = (resp1['analyzeResult']['readResults'][0].lines[0].text == null)? resp1['analyzeResult']['readResults'][0] : resp1['analyzeResult']['readResults'][0].lines[0].text
+	var respSet = (resp1['analyzeResult']['readResults'][0].lines[0].text == undefined)? resp1['analyzeResult']['readResults'][0] : resp1['analyzeResult']['readResults'][0].lines[0].text
 	set(ref(db, '/'+mail + '/' + dT ), {
 		readValue : respSet
 	  })
