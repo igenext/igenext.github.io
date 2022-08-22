@@ -118,7 +118,7 @@ var myUrl;
 	  }).done(function(response){
 		  resp1 = response;
 		  console.log(resp1)
-		  alert(resp1['analyzeResult']['readResults'][0].lines[0].text)
+		  alert(resp1['analyzeResult']['readResults'][0])
 		  
 	  });
 	  });
@@ -133,7 +133,7 @@ database.onclick = () => {
 	dT = dT.replace("/","-")
 	dT = dT.replace("/","-")
 	set(ref(db, '/'+mail + '/' + dT ), {
-		readValue :resp1['analyzeResult']['readResults'][0].lines[0].text
+		readValue :resp1['analyzeResult']['readResults'][0]
 	  })
 	  .then(() => {
 		alert("Setted to Database")
