@@ -1,7 +1,26 @@
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
+
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
+
+
 let camera_button = document.querySelector("#start-camera");
 let video = document.querySelector("#video");
 let click_button = document.querySelector("#click-photo");
 let canvas = document.querySelector("#canvas");
+
+let database = document.getElementById("database");
+
+const firebaseConfig = {
+
+    databaseURL:"https://eb-billing-default-rtdb.asia-southeast1.firebasedatabase.app/"
+  
+  };
+
+const app = initializeApp(firebaseConfig);
+
+const dbRef = ref(getDatabase());
+
+const db = getDatabase();
 
 const constraints = {
 	video: {
@@ -98,7 +117,27 @@ var myUrl;
 		  type : "GET",
 	  }).done(function(response){
 		  resp1 = response;
-		  alert(resp1['analyzeResult']['readResults'][0].lines[0].text)
+		  alert(resp1['analyzeResult']['readResults'][0].lines[0])
 	  });
 	  });
 	});
+
+var mail = localStorage.getItem("email")
+mail = mail.replace("@gmail.com","");
+
+var i = 1
+
+database.onclick = () => {
+	var dT = new Date().toLocaleString();
+	dT = dT.replace("/","-")
+	dT = dT.replace("/","-")
+	set(ref(db, '/'+mail + '/' + dT ), {
+		readValue :resp1['analyzeResult']['readResults'][0].lines[0]
+	  })
+	  .then(() => {
+		alert("Setted to Database")
+	  })
+	  .catch((error) => {
+		document.write('<h3>Some Error Occurred</h3>')
+	  });
+}

@@ -1,5 +1,7 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword, onAuthStateChanged} from "https://www.gstatic.com/firebasejs/9.1.0/firebase-auth.js";
+import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.1.0/firebase-database.js";
+
 
 
 const firebaseConfig = {
@@ -14,7 +16,9 @@ const firebaseConfig = {
   
     messagingSenderId: "445611088788",
   
-    appId: "1:445611088788:web:5e0cd7650bdd42ee904d81"
+    appId: "1:445611088788:web:5e0cd7650bdd42ee904d81",
+
+    databaseURL:"https://eb-billing-default-rtdb.asia-southeast1.firebasedatabase.app/"
   
   };
   
@@ -32,8 +36,12 @@ var password = document.getElementById("pass")
 
 const btn = document.getElementById("signin")
 const btn2 = document.getElementById("signout")
+var email1;
 
-btn.onclick = () =>{
+btn.onclick = () =>{signin()}
+ 
+function signin(){
+
 
 signInWithEmailAndPassword(auth, email.value, password.value)
   .then((userCredential) => {
@@ -41,6 +49,11 @@ signInWithEmailAndPassword(auth, email.value, password.value)
    
     const user = auth.currentUser
   
+    localStorage.setItem("email",email.value)
+
+    email1 = localStorage.getItem("email")
+    console.log(email1);
+
     alert("Signed in Successfully")
     
     location.href="success.html"
@@ -54,7 +67,9 @@ signInWithEmailAndPassword(auth, email.value, password.value)
 
 }
 
-btn2.onclick = () =>{
+btn2.onclick = () =>{ singout()}
+
+function singout(){
     /*onAuthStateChanged(auth, (user) => {
         if (user) {
           // User is signed in, see docs for a list of available properties
@@ -70,3 +85,4 @@ btn2.onclick = () =>{
       alert("Refreshing")
       location.reload();
 }
+
