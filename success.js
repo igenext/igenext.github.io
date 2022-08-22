@@ -50,6 +50,7 @@ camera_button.addEventListener('click', async function() {
 });
 
 click_button.addEventListener('click', function() {
+	document.getElementById("main").style.height = "900px"
 	canvas.width =240;     
 	canvas.height = 320;
    	canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
