@@ -4,6 +4,11 @@ body{
     font-family: 'Montserrat', sans-serif;
 }
 
+h1{
+    text-align: center;
+    color: linear-gradient(45deg, #2b29a2, #1ba356);
+}
+
 #main{
     left      : 50%;
     top       : 50%;
