@@ -11,12 +11,16 @@ body{
     transform : translate(-50%, -50%);
     background: white;
     border-radius: 20px;
-    height: 700px;
+    height: 750px;
     width: 500px
 }
 
 #click-photo{
     margin:40px 30px 10px 50px;
+}
+
+#database{
+    margin:30px 30px 10px 150px;
 }
 
 
@@ -43,3 +47,6 @@ video{
     margin: 5px 55px;
 }
 
+canvas{
+    margin: 10px 10px 10px 135px;
+}
